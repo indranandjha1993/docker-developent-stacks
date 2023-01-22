@@ -1,0 +1,174 @@
+version: "3"
+services:
+  web:
+    build:
+      context: web/
+    ports:
+      - "80:80"
+    volumes:
+      - web:/usr/share/nginx/html
+    networks:
+      - workspace
+  app:
+    build:
+      context: app/
+    ports:
+      - "8000:8000"
+    volumes:
+      - app:/app
+    networks:
+      - workspace
+  java:
+    build:
+      context: java/
+    ports:
+      - "8080:8080"
+    volumes:
+      - java:/java
+    networks:
+      - workspace
+  ruby:
+    build:
+      context: ruby/
+    ports:
+      - "3000:3000"
+    volumes:
+      - ruby:/ruby
+    networks:
+      - workspace
+  golang:
+    build:
+      context: golang/
+    ports:
+      - "8000:8000"
+    volumes:
+      - golang:/golang
+    networks:
+      - workspace
+  node:
+    build:
+      context: node/
+    ports:
+      - "3000:3000"
+    volumes:
+      - node:/node
+  scala:
+    build:
+      context: scala/
+    ports:
+      - "9000:9000"
+    volumes:
+      - scala:/scala
+    networks:
+      - workspace
+  python:
+    build:
+      context: python/
+    ports:
+      - "8000:8000"
+    volumes:
+      - python:/python
+    networks:
+      - workspace
+  c:
+    build:
+      context: c/
+    ports:
+      - "8000:8000"
+    volumes:
+      - c:/c
+    networks:
+      - workspace
+  c++:
+    build:
+      context: c++/
+    ports:
+      - "8000:8000"
+    volumes:
+      - c++:/c++
+    networks:
+      - workspace
+  c#:
+    build:
+      context: c#/
+    ports:
+      - "8000:8000"
+    volumes:
+      - c#:/c#
+    networks:
+      - workspace
+  javascript:
+    build:
+      context: javascript/
+    ports:
+      - "8000:8000"
+    volumes:
+      - javascript:/javascript
+    networks:
+      - workspace
+  db-mysql:
+    build:
+      context: db/mysql/
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql:/var/lib/mysql
+    networks:
+      - workspace
+  db-oracle:
+    build:
+      context: db/oracle/
+    ports:
+      - "1521:1521"
+    volumes:
+      - oracle:/oracle
+    networks:
+      - workspace
+  db-mongodb:
+    build:
+      context: db/mongodb/
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb:/data/db
+    networks:
+      - workspace
+  server-nginx:
+    build:
+    context: server/nginx/
+    ports:
+      - "80:80"
+    volumes:
+      - nginx:/etc/nginx
+    networks:
+      - workspace
+  server-apache:
+    build:
+    context: server/apache/
+    ports:
+      - "8080:8080"
+    volumes:
+      - apache:/etc/httpd
+    networks:
+      - workspace
+volumes:
+  web:
+  app:
+  java:
+  ruby:
+  golang:
+  node:
+  scala:
+  python:
+  c:
+  c++:
+  c#:
+  javascript:
+  mysql:
+  oracle:
+  mongodb:
+  nginx:
+  apache:
+networks:
+  mynet:
+    driver: bridge

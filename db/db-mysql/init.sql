@@ -1,0 +1,16 @@
+CREATE DATABASE mydatabase;
+USE mydatabase;
+
+CREATE TABLE users (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE items (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id)
+);
